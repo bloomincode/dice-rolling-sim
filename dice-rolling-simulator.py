@@ -1,10 +1,12 @@
 import random
 
 def print_dice(roll_val):
-    dice_outline = "  -------  "
+    dice_outline_t = "   -------  "
+    dice_outline_b = "  -------  "
     top_line = " |       | "
     mid_line = " |       | "
     bot_line = " |       | "
+
     if roll_val == 1:
         mid_line = " |   0   | "
     elif roll_val == 2:
@@ -13,8 +15,8 @@ def print_dice(roll_val):
     elif roll_val == 3:
         mid_line = " |0  0  0| "
     elif roll_val == 4:
-        top_line = " |0     0| "
-        bot_line = " |0     0| "
+        top_line = " |0     0|"
+        bot_line = " |0     0|"
     elif roll_val == 5:
         top_line = " |0     0| "
         mid_line = " |   0   | "
@@ -23,18 +25,19 @@ def print_dice(roll_val):
         top_line = " |0  0  0| "
         bot_line = " |0  0  0| "
     
-    print(dice_outline)
-    print(top_line)
-    print(mid_line)
-    print(bot_line)
-    print(dice_outline)
+    print(dice_outline_t, "\n",top_line, "\n", mid_line, "\n", bot_line, "\n", dice_outline_b)
 
 def main():
     print("Enter y to roll the dice")
     user_response = input()
-    if user_response == 'y':
-        roll_val = random.randint(1,6)
-    print_dice(roll_val)
-
+    
+    while(user_response == 'y'):
+        if user_response == 'y':
+            roll_val = random.randint(1,6)
+        print_dice(roll_val)
+       
+        print("Enter y to roll the dice again")
+        user_response = input()
+        
 if __name__ == '__main__':
     main()
